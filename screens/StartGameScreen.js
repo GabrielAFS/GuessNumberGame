@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import Card from '../components/Card';
-import Btn from '../components/Btn';
+import InlineBtn from '../components/InlineBtn';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 
@@ -63,7 +63,7 @@ const StartGameScreen = (props) => {
       <Card style={styles.chosenContainer}>
         <Text style={styles.chosenText}>You selected:</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="START GAME" />
+        <Button title="START GAME" onPress={() => props.onStartGame(selectedNumber)} />
       </Card>
     )
   }
@@ -87,12 +87,12 @@ const StartGameScreen = (props) => {
             value={enteredValue}
           />
           <View style={styles.buttonGroup}>
-            <Btn
+            <InlineBtn
               title="Reset"
               color={Colors.secondary}
               onPress={resetInputHandler} 
             />
-            <Btn
+            <InlineBtn
               title="Confirm"
               color={Colors.primary}
               onPress={confirmInputHandler}
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   chosenContainer: {
-    marginTop: 20
+    marginTop: 20,
+    alignItems: 'center'
   },
   chosenText: {
     textAlign: 'center'

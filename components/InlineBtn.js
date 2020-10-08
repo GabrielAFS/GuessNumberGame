@@ -2,7 +2,7 @@ import React from "react";
 
 import { View, Button, StyleSheet } from "react-native";
 
-const Btn = (props) => {
+const InlineBtn = (props) => {
   return (
     <View style={{ ...styles.button, ...props.style }}>
       <Button {...props} />
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Btn;
+export default InlineBtn;

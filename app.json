@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "HelloWorld",
+    "name": "GuessNumberGame",
     "slug": "GuessNumberGame",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +16,10 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.gabrielaugusto.guessnumbergame",
+      "versionCode": 1
+    },
     "ios": {
       "supportsTablet": true
     },

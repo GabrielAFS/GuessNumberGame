@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, Dimensions } from "react-native";
 
 const InlineBtn = (props) => {
   return (
@@ -13,7 +13,7 @@ const InlineBtn = (props) => {
 const styles = StyleSheet.create({
   button: {
     width: 110,
-    maxWidth: '50%',
+    maxWidth: Dimensions.get('window').width * 0.3,
     paddingHorizontal: 5,
   },
 });

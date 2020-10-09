@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TextInput, StyleSheet } from "react-native";
+import { TextInput, StyleSheet, Dimensions } from "react-native";
 
 const Input = (props) => {
   return (
@@ -13,7 +13,7 @@ const Input = (props) => {
 
 const styles = StyleSheet.create({
   input: {
-    height: 30,
+    height: Dimensions.get('window').height > 520 ? 30 : 15,
     borderBottomColor: "grey",
     borderBottomWidth: 1,
     marginVertical: 10,

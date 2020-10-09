@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 
 const Card = (props) => {
   return (
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 5, // Habilita o shadow no Android
     backgroundColor: "white",
-    padding: 20,
+    padding: Dimensions.get('window').width > 360 ? 20 : 7,
     borderRadius: 10,
   },
 });

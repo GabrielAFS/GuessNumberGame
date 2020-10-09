@@ -1,25 +1,47 @@
 import React from "react";
 
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Dimensions,
+  Platform,
+  Button,
+} from "react-native";
 
 import Colors from "../constants/colors";
 
 const MainButton = (props) => {
+  let ButtonComponent = TouchableOpacity;
+
+  if (Platform.OS === "android" && Platform.Version >= 21) {
+    ButtonComponent = TouchableNativeFeedback;
+  }
+
   return (
-    <TouchableOpacity onPress={props.onPress}>
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>{props.children}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.buttonContainer}>
+      <ButtonComponent onPress={props.onPress}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{props.children}</Text>
+        </View>
+      </ButtonComponent>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  // Previne que a sombra formada pelo NativeFeedback apareça
+  buttonContainer: {
+    borderRadius: 25,
+    overflow: 'hidden'
+  },
   button: {
     backgroundColor: Colors.primary,
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 25
+    paddingVertical: Dimensions.get("window").height > 520 ? 12 : 6,
+    paddingHorizontal: Dimensions.get("window").width > 360 ? 30 : 15,
+    borderRadius: 25,
   },
   buttonText: {
     fontFamily: "open-sans",
